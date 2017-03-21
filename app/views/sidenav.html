@@ -1,0 +1,17 @@
+<md-sidenav md-component-id="left" class="md-sidenav-left md-padding" md-is-locked-open="$mdMedia('gt-md')">
+  <md-input-container>
+    <label>URL de el Articulo</label>
+    <input ng-model="vm.report.url" ng-disabled='vm.reporting'>
+  </md-input-container>
+  <md-select ng-model="vm.report.motive" ng-disabled='vm.reporting'>
+    <md-option ng-repeat="motive in vm.motives" value="{{motive.title}}">
+      {{motive.title}}
+    </md-option>
+  </md-select>
+  <md-input-container class="md-block">
+    <label>Comentario</label>
+    <textarea ng-model="vm.report.coment" ng-disabled='vm.reporting' md-maxlength="256" rows="4" md-select-on-focus></textarea>
+  </md-input-container>
+  <md-button class='md-primary md-raised' ng-if='!vm.reporting' ng-click="vm.submitReport()">Reportar</md-button>
+  <md-progress-circular ng-if='vm.reporting' md-mode="indeterminate"></md-progress-circular>
+</md-sidenav>

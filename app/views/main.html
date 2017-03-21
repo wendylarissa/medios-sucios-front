@@ -1,14 +1,20 @@
 <md-toolbar layout="row" class="md-toolbar-tools">
-  <md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleList()" aria-label="Show User List">
-    <md-icon md-svg-icon="menu"></md-icon>
-  </md-button>
   <h1>Medios Sucios</h1>
 </md-toolbar>
 <div flex layout="row">
-  <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-md')">
-    
-  </md-sidenav>
-  <md-content flex id="content">
-    
+  <ng-include src='"views/sidenav.html"'></ng-include>
+  <md-content flex id="content" class='md-padding'>
+    <md-list flex>
+      <md-list-item class="md-3-line md-long-text report" ng-repeat='report in vm.reports'>
+        <img ng-src='{{report.info.image}}' ng-alt='{{report.info.title}}' class='report-image' />
+        <div class="md-list-item-text md-padding">
+          <h3><a ng-href='{{report.link}}'>{{ report.info.title }}</a></h3>
+          <h4>{{report.source.domain}}</h4>
+          <p>
+            {{report.info.description}}
+          </p>
+        </div>
+      </md-list-item>
+    </md-list>
   </md-content>
 </div>

@@ -15,16 +15,26 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngMaterial'
+    'ngMaterial',
+    'restangular',
+    'ngSails'
   ])
-  .config(function ($routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        controllerAs: 'vm'
       })
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .config(function(RestangularProvider) {
+    //RestangularProvider.setBaseUrl('http://medios-sucios-api.herokuapp.com/');
+    RestangularProvider.setBaseUrl('http://localhost:1337/');
+  })
+  .config(['$sailsProvider', function($sailsProvider) {
+    //$sailsProvider.url = 'http://semarnapi.herokuapp.com';
+    $sailsProvider.url = 'http://localhost:1337';
+  }]);
