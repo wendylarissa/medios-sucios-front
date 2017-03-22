@@ -31,7 +31,8 @@ angular.module('mediosSuciosFrontApp')
         { title: 'Sexismo' },
         { title: 'motivo2' },
         { title: 'Motivo3' },
-        { title: 'Motivo4' }
+        { title: 'Motivo4' },
+        { title: 'Motivo6' }
       ];
     }
 
