@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc service
- * @name mediosSuciosFrontApp.ctbookApi
+ * @name mediosSuciosFrontApp.msApiService
  * @description
- * # ctbookApi
+ * # msApiService
  * Service in the mediosSuciosFrontApp.
  */
 angular.module('mediosSuciosFrontApp')
