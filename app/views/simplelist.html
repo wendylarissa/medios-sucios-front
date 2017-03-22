@@ -1,0 +1,14 @@
+<md-list flex>
+  <md-list-item class="md-3-line md-long-text report" ng-repeat='report in vm.reports'>
+    <div class='img-container'>
+      <img ng-src='{{report.info.image}}' ng-alt='{{report.info.title}}' class='report-image' />
+    </div>
+    <div class="md-list-item-text md-padding">
+      <h3><a ng-href='{{report.link}}'>{{ report.info.title }}</a></h3>
+      <h4>{{report.source.domain}}</h4>
+      <p>
+        {{report.info.description}}
+      </p>
+    </div>
+  </md-list-item>
+</md-list>

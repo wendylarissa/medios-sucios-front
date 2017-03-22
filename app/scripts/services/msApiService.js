@@ -8,7 +8,7 @@
  * Service in the mediosSuciosFrontApp.
  */
 angular.module('mediosSuciosFrontApp')
-  .service('msApiService', function(Restangular, $sails) {
+  .service('msApiService', function(Restangular) {
 
     this.Report = Restangular.all('report');
 
@@ -19,7 +19,7 @@ angular.module('mediosSuciosFrontApp')
     this.getReports = function(query) {
       var defaults = { sort: 'createdAt DESC' };
       angular.extend(defaults, query);
-      return $sails.get('/report', defaults);
+      return this.Report.getList(defaults);
     };
 
   });

@@ -31,8 +31,6 @@ module.exports = function(config) {
       'bower_components/angular-material/angular-material.js',
       'bower_components/lodash/lodash.js',
       'bower_components/restangular/dist/restangular.js',
-      'bower_components/sails.io.js/dist/sails.io.js',
-      'bower_components/angular-sails/dist/angular-sails.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

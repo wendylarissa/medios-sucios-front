@@ -40,8 +40,8 @@ angular.module('mediosSuciosFrontApp')
       return msApiService.getReports().then(vm.setReports);
     }
 
-    function setReports(res) {
-      vm.reports = res.body.map(function(report) {
+    function setReports(reports) {
+      vm.reports = reports.map(function(report) {
         report.info = metadataService.getBasicInfo(report.metadata);
         return report;
       });

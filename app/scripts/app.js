@@ -17,7 +17,7 @@ angular
     'ngSanitize',
     'ngMaterial',
     'restangular',
-    'ngSails'
+    'ngMessages'
   ])
   .config(function($routeProvider) {
     $routeProvider
@@ -31,10 +31,6 @@ angular
       });
   })
   .config(function(RestangularProvider) {
-    RestangularProvider.setBaseUrl('http://medios-sucios-api.herokuapp.com/');
-    //RestangularProvider.setBaseUrl('http://localhost:1337/');
-  })
-  .config(['$sailsProvider', function($sailsProvider) {
-    $sailsProvider.url = 'http://medios-sucios-api.herokuapp.com';
-    //$sailsProvider.url = 'http://localhost:1337';
-  }]);
+    //RestangularProvider.setBaseUrl('http://medios-sucios-api.herokuapp.com/');
+    RestangularProvider.setBaseUrl('http://localhost:1337/');
+  });

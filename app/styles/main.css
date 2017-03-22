@@ -9,8 +9,23 @@ a{
 .report{
 
 }
-.report-image{
+
+.img-container{
   max-width:250px;
-  max-height:250px;
   height:auto;
+  position: relative;
+  overflow:hidden;
+}
+
+.img-container img{  
+  max-width:250px;
+  height:auto;
+}
+
+.img-container .overlay{
+  display:block;
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-color:;
 }

@@ -425,7 +425,7 @@ module.exports = function(grunt) {
     //Change Base URL for production
     processhtml: {
       options: {
-        commentMarker: "process"
+        commentMarker: 'process'
       },
       dist: {
         files: [{
