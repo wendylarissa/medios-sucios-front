@@ -31,6 +31,6 @@ angular
       });
   })
   .config(function(RestangularProvider) {
-    //RestangularProvider.setBaseUrl('http://medios-sucios-api.herokuapp.com/');
-    RestangularProvider.setBaseUrl('http://localhost:1337/');
+    RestangularProvider.setBaseUrl('http://medios-sucios-api.herokuapp.com/');
+    //RestangularProvider.setBaseUrl('http://localhost:1337/');
   });
