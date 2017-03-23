@@ -21,7 +21,7 @@ angular.module('mediosSuciosFrontApp')
     vm.init = init;
     vm.setReports = setReports;
     vm.submitReport = submitReport;
-    vm.toggleSidenav = toggleSidenav();
+    vm.toggleSidenav = toggleSidenav;
     vm.init();
 
 
@@ -43,8 +43,6 @@ angular.module('mediosSuciosFrontApp')
       ];
     }
 
-
-
     function setReports(reports) {
       vm.loadingReports = false;
       vm.reports = reports.map(function(report) {
@@ -61,15 +59,13 @@ angular.module('mediosSuciosFrontApp')
         .then(function(report) {
           vm.reporting = false;
           vm.metadata = report;
+          vm.toggleSidenav();
           vm.getReports();
         });
     }
 
     function toggleSidenav() {
-      return function() {
-      console.log('toggling');
-        $mdSidenav('left').toggle();
-      };
+      $mdSidenav('left').toggle();
     }
 
 
