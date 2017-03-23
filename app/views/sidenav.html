@@ -11,7 +11,7 @@
       </div>
     </md-input-container>
     <md-input-container flex>
-      <label>Motivo</label>
+      <label>Tipo de discriminacion</label>
       <md-select aria-label='motivo' ng-model="vm.report.motive" ng-disabled='vm.reporting' name='reportMotive' required>
         <md-option ng-repeat="motive in vm.motives" value="{{motive.title}}">
           {{motive.title}}
