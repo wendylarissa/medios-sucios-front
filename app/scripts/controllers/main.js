@@ -33,10 +33,10 @@ angular.module('mediosSuciosFrontApp')
     function init() {
       vm.getReports();
       vm.motives = [
-        { title: 'Étnico' },
+        { title: 'Étnia' },
         { title: 'Nacionalidad' },
         { title: 'Clase' },
-        { title: 'Sexo' },
+        { title: 'Genero' },
         { title: 'Religión' },
         { title: 'Orientación Sexual' },
         { title: 'Discapacidad' }
