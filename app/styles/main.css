@@ -20,9 +20,9 @@ a {
 
 .img-container {
   position: relative;
-  min-width: 250px;
   background-repeat:no-repeat;
   background-position: center center;
+  background-color: #301031;
 }
 
 .img-container h2 {
