@@ -1,7 +1,8 @@
-<md-toolbar layout="row" class="md-toolbar-tools">
-  <h1>Medios Sucios</h1>
+<md-toolbar layout="row" class="md-toolbar-tools" md-scroll-shrink>
+  <h1 flex>Medios Sucios</h1>
+  <md-button class='md-secondary md-raised' ng-click='vm.toggleSidenav()' hide-gt-md>Reportar</md-button>
 </md-toolbar>
-<div flex layout="row">
+<div flex layout="row" layout-fill>
   <ng-include src='"views/sidenav.html"' layout='row'></ng-include>
-  <md-content flex class='md-padding' ng-include='"views/simplelist.html"'></md-content>
+  <md-content flex class='md-padding' ng-include='"views/simplelist.html"' ></md-content>
 </div>

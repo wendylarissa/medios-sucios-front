@@ -1,6 +1,12 @@
-<md-list flex>
+<div layout-align='center center' layout='row' flex layout-fill ng-if='vm.loadingReports'>
+  <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<md-list flex layout-fill>
   <md-list-item class="md-3-line md-long-text report" ng-repeat='report in vm.reports'>
     <div class='img-container'>
+      <div class='overlay' layout='row'  layout-align='center center'>
+        <div class='Text'></div>
+      </div>
       <img ng-src='{{report.info.image}}' ng-alt='{{report.info.title}}' class='report-image' />
     </div>
     <div class="md-list-item-text md-padding">

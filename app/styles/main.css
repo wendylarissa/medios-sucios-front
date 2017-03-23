@@ -4,17 +4,19 @@ a{
   font-weight:bold;
 }
 
-.report{
+#main-container{
+  height:100%;
+  width:100%;
 }
-.report{
 
-}
 
-.img-container{
-  max-width:250px;
-  height:auto;
-  position: relative;
+.grid-tile{
   overflow:hidden;
+  background-color:#aaa;
+}
+
+.grid-tile img{
+  opacity: .4
 }
 
 .img-container img{  
