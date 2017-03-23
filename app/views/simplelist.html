@@ -1,17 +1,19 @@
 <div layout-align='center center' layout='row' flex layout-fill ng-if='vm.loadingReports'>
   <md-progress-circular md-mode="indeterminate"></md-progress-circular>
 </div>
-<md-list flex layout-fill>
+<md-list flex>
   <md-list-item class="md-3-line md-long-text report" ng-repeat='report in vm.reports'>
-    <div class='img-container'>
-      <div class='overlay' layout='row'  layout-align='center center'>
-        <div class='Text'></div>
+    <div class='img-container' style="background-image: url('{{report.info.image}}')">
+      <div class='overlay' ></div>
+      <div class='md-padding' style='position:relative'>
+        <h2>{{report.source.domain}}</h2>
+        <h3>{{report.motive}}</h3>
+        <h3 ng-bind="report.createdAt | date:'dd-MM-yyyy'"></h3>
       </div>
-      <img ng-src='{{report.info.image}}' ng-alt='{{report.info.title}}' class='report-image' />
     </div>
     <div class="md-list-item-text md-padding">
       <h3><a ng-href='{{report.link}}'>{{ report.info.title }}</a></h3>
-      <h4>{{report.source.domain}}</h4>
+      <h4>{{report.link}}</h4>
       <p>
         {{report.info.description}}
       </p>

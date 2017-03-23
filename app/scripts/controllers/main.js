@@ -48,6 +48,7 @@ angular.module('mediosSuciosFrontApp')
     function setReports(reports) {
       vm.loadingReports = false;
       vm.reports = reports.map(function(report) {
+        console.log(report);
         report.info = metadataService.getBasicInfo(report.metadata);
         return report;
       });
