@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngMaterial',
     'restangular',
-    'ngMessages'
+    'ngMessages',
+    'chart.js'
   ])
   .config(function($routeProvider) {
     $routeProvider
@@ -44,4 +45,11 @@ angular
     $mdThemingProvider.theme('default')
       .primaryPalette('pinkMS');
 
-  });
+  })
+  .config(function (ChartJsProvider) {
+    ChartJsProvider.setOptions({ 
+      colors : [ '#f0b4bd', '#fff', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] 
+      //default colors: 
+      //colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] 
+    });
+  }); 

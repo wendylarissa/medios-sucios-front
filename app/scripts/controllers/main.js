@@ -22,6 +22,11 @@ angular.module('mediosSuciosFrontApp')
     vm.setReports = setReports;
     vm.submitReport = submitReport;
     vm.toggleSidenav = toggleSidenav;
+    vm.setupCharts = setupCharts;
+
+    vm.mediaData = {};
+    vm.datesData = {};
+    vm.reasonsData = {};
     vm.init();
 
 
@@ -32,6 +37,7 @@ angular.module('mediosSuciosFrontApp')
 
     function init() {
       vm.getReports();
+      vm.setupCharts();
       vm.motives = [
         { title: 'Étnia' },
         { title: 'Nacionalidad' },
@@ -66,6 +72,45 @@ angular.module('mediosSuciosFrontApp')
 
     function toggleSidenav() {
       $mdSidenav('left').toggle();
+    }
+
+    function setupCharts(){
+
+      vm.mediaData.labels = ['El universal', 'La nacion',  'La jornada', 'La prensa'];
+      vm.mediaData.series = ['Series A'];
+
+      vm.mediaData.data = [
+        [65, 59, 80, 81, 56, 55, 40]
+      ];
+
+
+      vm.datesData.labels = ["January", "February", "March", "April", "May", "June", "July"];
+      vm.datesData.series = ['Series A'];
+      vm.datesData.data = [
+        [65, 59, 80, 81, 56, 55, 40]
+      ];
+      //vm.datesData.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
+      vm.datesData.options = {
+        scales: {
+          yAxes: [
+            {
+              id: 'y-axis-1',
+              type: 'linear',
+              display: true,
+              position: 'left'
+            }
+          ]
+        }
+      };
+
+      vm.reasonsData.labels = ['Sexismo', 'Racismo','Religioso', 'Homofobia'];
+      vm.reasonsData.series = ['Series A'];
+
+      vm.reasonsData.data = [
+        [65, 59, 80, 81, 56, 55, 40]
+      ];
+
+
     }
 
 
