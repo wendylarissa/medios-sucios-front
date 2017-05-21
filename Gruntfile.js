@@ -25,6 +25,8 @@ module.exports = function(grunt) {
     dist: 'dist'
   };
 
+  var modRewrite = require('connect-modrewrite');
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -80,6 +82,7 @@ module.exports = function(grunt) {
           open: true,
           middleware: function(connect) {
             return [
+              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.jpg|\\.ttf|\\.woff|\\.mp4|\\.gif|\\.xml|\\.webm$ /index.html [L]']),
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -389,7 +392,16 @@ module.exports = function(grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
-        }]
+        },
+        {
+          //for fontello
+          expand: true,
+          dot: true,
+          cwd: '<%= yeoman.app %>/fonts',
+          src: ['*.*'],
+          dest: '<%= yeoman.dist %>/fonts'
+        }
+        ]
       },
       styles: {
         expand: true,
