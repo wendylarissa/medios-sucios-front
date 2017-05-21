@@ -41,12 +41,13 @@ a {
 }
 
 .marquee a{
+  font-size: 12px;
   color:white;
   text-transform: uppercase;
   font-weight: bold;
 }
 .marquee a:hover{
-  color: white;
+  color: #f0b4bd;
 
 }
 
@@ -110,6 +111,22 @@ md-sidenav .reportbtn span {
   height: 80px;
   float:right;
   background-size: 80px 80px
+}
+
+.report-form md-input-container.md-default-theme .md-input, 
+.report-form md-input-container .md-input{
+  border-color: #f0b4bd;
+}
+
+.report-form .select-type{
+  vertical-align: middle;
+  top: -12px;
+  position: relative;
+  min-width: 180px;
+
+}
+.report-form .select-type md-select-value{
+  border-bottom-color: #f0b4bd!important;
 }
 
 .grid-tile {

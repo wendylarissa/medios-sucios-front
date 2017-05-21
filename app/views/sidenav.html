@@ -2,7 +2,7 @@
   <div class='head'>
     <a href='/'><img src='images/logo1.png' alt='medios sucios' /></a>
   </div>
-  <form name='reportForm' ng-submit="vm.submitReport()">
+  <form name='reportForm' ng-submit="vm.submitReport()" class="report-form">
     <div class='md-padding'>
       <h1>¿Cómo participar?</h1>
       <h2>Simplemente llena el formulario</h2>
@@ -16,7 +16,14 @@
       </md-input-container>
       <md-input-container flex>
         <label>Tipo de discriminacion</label>
-        <md-select aria-label='motivo' ng-model="vm.report.motive" ng-disabled='vm.reporting' name='reportMotive' required>
+        <md-select 
+          aria-label='motivo' 
+          ng-model="vm.report.motive" 
+          ng-disabled='vm.reporting'
+          name='reportMotive' 
+          class="select-type"
+          required
+        >
           <md-option ng-repeat="motive in vm.motives" value="{{motive.title}}">
             {{motive.title}}
           </md-option>
