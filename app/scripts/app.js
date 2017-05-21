@@ -33,4 +33,15 @@ angular
   .config(function(RestangularProvider) {
     RestangularProvider.setBaseUrl('https://medios-sucios-api.herokuapp.com/');
     //RestangularProvider.setBaseUrl('http://localhost:1337/');
+  })
+  .config(function($mdThemingProvider) {
+    var mediosSuciosTheme = $mdThemingProvider.extendPalette('indigo', {
+      '500': '#2D303A',
+    });
+
+    $mdThemingProvider.definePalette('pinkMS', mediosSuciosTheme);
+
+    $mdThemingProvider.theme('default')
+      .primaryPalette('pinkMS');
+
   });

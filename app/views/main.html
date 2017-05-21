@@ -1,8 +1,25 @@
-<md-toolbar layout="row" class="md-toolbar-tools" md-scroll-shrink>
-  <h1 flex>Medios Sucios</h1>
-  <md-button class='md-secondary md-raised' ng-click='vm.toggleSidenav()' hide-gt-md>Reportar</md-button>
-</md-toolbar>
+<div flex layout='row' layout-fill>
+  <div flex>
+    <md-toolbar layout="row" class="md-toolbar-tools main-toolbar">
+      <h1 flex>Contacto: + 52 <span>(555) 555-5555</span></h1>
+      <span class="icon icon-instagram"></span>
+      <span class="icon icon-facebook"></span>
+      <span class="icon icon-twitter"></span>
+      <!--<md-button class='md-secondary md-raised' ng-click='vm.toggleSidenav()' >Reportar</md-button> -->
+    </md-toolbar>
+    <md-content layout='row' layout-wrap class='marquee' layout-fill>
+      <div flex layout-align='space-between' layout='row' class='menu-container'>
+        <a href=''>¿Porque Reportar?</a>
+        <a href=''>¿Cómo Funciona?</a>
+        <a href=''>¿Reportes?</a>
+        <a href=''>¿Qué es discurso de odio?</a>
+        <a href=''>¿Quienes Sómos?</a>
+        <a href=''>Contacto</a>  
+      </div>
+    </md-content>
+  </div>
+  <ng-include src='"views/sidenav.html"' layout='row' class='sidenav-container' ></ng-include>
+</div>
 <div flex layout="row" layout-fill>
-  <ng-include src='"views/sidenav.html"' layout='row'></ng-include>
-  <md-content flex class='md-padding' ng-include='"views/simplelist.html"' ></md-content>
+  <md-content flex class='md-padding' ng-include='"views/simplelist.html"'></md-content>
 </div>

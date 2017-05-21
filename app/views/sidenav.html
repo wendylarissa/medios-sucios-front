@@ -1,34 +1,42 @@
-<md-sidenav md-component-id="left" class="md-sidenav-left md-padding" md-is-locked-open="$mdMedia('gt-md')" flex>
-  <form name='reportForm' layout='column' ng-submit="vm.submitReport()">
-    <h2>Ingresa tu Reporte</h2>
-    <p>Nullam tempor ipsum in dolor dapibus laoree eu aliquam bibendum</p>
-    <md-input-container flex>
-      <label>URL de el Articulo</label>
-      <input ng-model="vm.report.url" ng-disabled='vm.reporting' required type='url' name='reportUrl'>
-      <div ng-messages="reportForm.reportUrl.$error" role="alert">
-        <div ng-message="url">Debe ser un URL valido.</div>
-        <div ng-message="required">Este campo es obligatorio.</div>
-      </div>
-    </md-input-container>
-    <md-input-container flex>
-      <label>Tipo de discriminacion</label>
-      <md-select aria-label='motivo' ng-model="vm.report.motive" ng-disabled='vm.reporting' name='reportMotive' required>
-        <md-option ng-repeat="motive in vm.motives" value="{{motive.title}}">
-          {{motive.title}}
-        </md-option>
-      </md-select>
-      <div ng-messages="reportForm.reportMotive.$error" role="alert">
-        <div ng-message="required">Este campo es obligatorio.</div>
-      </div>
-    </md-input-container>
-    <md-input-container class="md-block">
-      <label>Comentario</label>
-      <textarea maxlength='256' ng-model="vm.report.coment" ng-disabled='vm.reporting' md-maxlength="256" rows="4" md-select-on-focus name='reportComment'></textarea>
-      <div ng-messages="reportForm.reportComment.$error" role="alert">
-        <div ng-message="md-maxlength">Máximo 256 caracteres</div>
-      </div>
-    </md-input-container>
-    <md-button type='submit' class='md-primary md-raised' ng-if='!vm.reporting'>Reportar</md-button>
+<md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-md')" flex layout-fill>
+  <div class='head'>
+    <a href='/'><img src='images/logo1.png' alt='medios sucios' /></a>
+  </div>
+  <form name='reportForm' ng-submit="vm.submitReport()">
+    <div class='md-padding'>
+      <h1>¿Cómo participar?</h1>
+      <h2>Simplemente llena el formulario</h2>
+      <md-input-container flex>
+        <label>URL de el Articulo</label>
+        <input ng-model="vm.report.url" ng-disabled='vm.reporting' required type='url' name='reportUrl'>
+        <div ng-messages="reportForm.reportUrl.$error" role="alert">
+          <div ng-message="url">Debe ser un URL valido.</div>
+          <div ng-message="required">Este campo es obligatorio.</div>
+        </div>
+      </md-input-container>
+      <md-input-container flex>
+        <label>Tipo de discriminacion</label>
+        <md-select aria-label='motivo' ng-model="vm.report.motive" ng-disabled='vm.reporting' name='reportMotive' required>
+          <md-option ng-repeat="motive in vm.motives" value="{{motive.title}}">
+            {{motive.title}}
+          </md-option>
+        </md-select>
+        <div ng-messages="reportForm.reportMotive.$error" role="alert">
+          <div ng-message="required">Este campo es obligatorio.</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>Comentario</label>
+        <textarea maxlength='256' ng-model="vm.report.coment" ng-disabled='vm.reporting' md-maxlength="256" rows="4" md-select-on-focus name='reportComment'></textarea>
+        <div ng-messages="reportForm.reportComment.$error" role="alert">
+          <div ng-message="md-maxlength">Máximo 256 caracteres</div>
+        </div>
+      </md-input-container>
+    </div>
+    <md-button type='submit' class='reportbtn' ng-if='!vm.reporting'>
+      Reportar
+      <span></span>
+    </md-button>
     <md-progress-circular ng-if='vm.reporting' md-mode="indeterminate"></md-progress-circular>
   </form>
 </md-sidenav>

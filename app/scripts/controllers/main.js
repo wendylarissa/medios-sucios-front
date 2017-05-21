@@ -36,7 +36,7 @@ angular.module('mediosSuciosFrontApp')
         { title: 'Étnia' },
         { title: 'Nacionalidad' },
         { title: 'Clase' },
-        { title: 'Genero' },
+        { title: 'Género' },
         { title: 'Religión' },
         { title: 'Orientación Sexual' },
         { title: 'Discapacidad' }
