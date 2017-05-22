@@ -30,6 +30,8 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
+    moment.locale('es');
   })
   .config(function(RestangularProvider) {
     RestangularProvider.setBaseUrl('https://medios-sucios-api.herokuapp.com/');

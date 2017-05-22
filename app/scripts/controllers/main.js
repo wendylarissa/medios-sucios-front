@@ -8,7 +8,7 @@
  * Controller of the mediosSuciosFrontApp
  */
 angular.module('mediosSuciosFrontApp')
-  .controller('MainCtrl', function(msApiService, metadataService, $mdSidenav) {
+  .controller('MainCtrl', function(msApiService, metadataService, $mdSidenav, $filter) {
 
     var vm = this;
 
@@ -47,6 +47,7 @@ angular.module('mediosSuciosFrontApp')
         { title: 'Orientación Sexual' },
         { title: 'Discapacidad' }
       ];
+
     }
 
     function setReports(reports) {
@@ -76,12 +77,93 @@ angular.module('mediosSuciosFrontApp')
 
     function setupCharts(){
 
+      msApiService.getSourceCount()
+        .then(function(res){
+          console.log(res);
+          var sourceCountReport = res.data;
+
+          vm.sourceData = sourceCountReport.reduce(function(acum,source){
+            var aux = {
+              labels: (acum.labels) ? acum.labels.concat(source._id) : [source._id],
+              data: (acum.data) ? acum.data.concat(source.total) : [source.total]            
+            };
+            return aux;
+          }, {});
+
+          vm.sourceData.options = {
+            scales:{
+              yAxes:[
+                {
+                  ticks:{beginAtZero:true}
+                }
+              ]
+            }
+          }
+          console.log('vm.mediaData', vm.mediaData);
+      })
+      .catch(function(err){
+        console.log(err);
+      })
+
+
+      msApiService.getMotiveCount()
+        .then(function(res){
+          console.log(res);
+          var motiveCountReport = res.data;
+
+          vm.motiveData = motiveCountReport.reduce(function(acum,source){
+            var aux = {
+              labels: (acum.labels) ? acum.labels.concat(source._id) : [source._id],
+              data: (acum.data) ? acum.data.concat(source.total) : [source.total]            
+            };
+            return aux;
+          }, {});
+
+          vm.motiveData.options = {
+            scales:{
+              yAxes:[
+                {
+                  ticks:{beginAtZero:true}
+                }
+              ]
+            }
+          }
+      })
+      .catch(function(err){
+        console.log(err);
+      })
+
+
+      msApiService.getDateReportCount()
+        .then(function(res){
+          console.log(res);
+          var dateCountReport = res.data;
+
+          vm.dateData = dateCountReport.reduce(function(acum,source){
+
+            var monthDate = moment(source._id, 'MM').toDate();
+            var monthName = $filter('date')(monthDate, 'MMMM');
+            var aux = {
+              labels: (acum.labels) ? acum.labels.concat(monthName) : [monthName],
+              data: (acum.data) ? acum.data.concat(source.total) : [source.total]            
+            };
+            return aux;
+          }, {});
+
+      })
+      .catch(function(err){
+        console.log(err);
+      })
+
+      //var formattedMonth = moment('09', 'MM').format('MMMM');
+        /*
       vm.mediaData.labels = ['El universal', 'La nacion',  'La jornada', 'La prensa'];
       vm.mediaData.series = ['Series A'];
 
       vm.mediaData.data = [
         [65, 59, 80, 81, 56, 55, 40]
       ];
+      */
 
 
       vm.datesData.labels = ["January", "February", "March", "April", "May", "June", "July"];
