@@ -154,9 +154,17 @@ md-sidenav .reportbtn.md-button:not([disabled]):hover {
   background-color: #f0b4bd;
 }
 
+md-sidenav .reportbtn.md-button:not([disabled]):hover .btn-icon{
+  background-image: url(../images/marranito2.png);
+}
 md-sidenav .reportbtn .btn-icon {
-  max-width: 80px;
+  width: 80px;
+  height:80px;
+  display:block;
   vertical-align: middle;
+  background-image: url(../images/marranito.png);
+  background-size: contain;
+
 }
 
 .report-form md-input-container{
