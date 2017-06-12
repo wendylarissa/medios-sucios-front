@@ -82,6 +82,7 @@ module.exports = function(grunt) {
           open: true,
           middleware: function(connect) {
             return [
+              /*jslint maxlen: 500 */
               modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.jpg|\\.ttf|\\.woff|\\.mp4|\\.gif|\\.xml|\\.webm$ /index.html [L]']),
               connect.static('.tmp'),
               connect().use(
@@ -392,16 +393,14 @@ module.exports = function(grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
-        },
-        {
+        }, {
           //for fontello
           expand: true,
           dot: true,
           cwd: '<%= yeoman.app %>/fonts',
           src: ['*.*'],
           dest: '<%= yeoman.dist %>/fonts'
-        }
-        ]
+        }]
       },
       styles: {
         expand: true,
@@ -493,7 +492,7 @@ module.exports = function(grunt) {
     'cdnify',
     'cssmin',
     'uglify',
-    'filerev',    
+    'filerev',
     'processhtml',
     'usemin',
     'htmlmin'

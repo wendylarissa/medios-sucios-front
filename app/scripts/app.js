@@ -27,6 +27,11 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'vm'
       })
+      .when('/content/:contentSlug', {
+        templateUrl: 'views/content.html',
+        controller: 'ContentCtrl',
+        controllerAs: 'vm'
+      })
       .otherwise({
         redirectTo: '/'
       });

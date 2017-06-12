@@ -34,6 +34,7 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "connect-modrewrite": "^0.10.1"
+    "connect-modrewrite": "^0.10.1",
+    "grunt-karma": "^2.0.0"
   }
 }

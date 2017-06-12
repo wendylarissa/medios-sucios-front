@@ -1,0 +1,24 @@
+<md-toolbar layout="row" class="md-toolbar-tools main-toolbar">
+  <h1 flex>Contacto: + 52 <span>(555) 555-5555</span></h1>
+  <span class="icon icon-instagram"></span>
+  <span class="icon icon-facebook"></span>
+  <span class="icon icon-twitter"></span>
+  <!--<md-button class='md-secondary md-raised' ng-click='vm.toggleSidenav()' >Reportar</md-button> -->
+</md-toolbar>
+<md-content layout='row' layout-wrap class='marquee' layout-fill>
+  <div class="marquee-inner">
+    <div layout-align='space-between start' layout='row' class='menu-container'>
+      <a ng-repeat='page in vm.pages' ng-href='#!/content/{{page.uid}}' >{{page.data.pagina.titulo.value[0].text}}</a>
+
+    </div>
+    <div class="intro-content">
+      <h1><strong>Medios sucios</strong> es un sitio que recopila el discurso de odio en medios de latinoamérica</h1>
+      <h2>Haz un reporte</h2>
+      <p>
+        <button class="action-btn">
+          Conoce más
+        </button>
+      </p>
+    </div>
+  </div>
+</md-content>

@@ -332,6 +332,23 @@ md-sidenav .reportbtn .btn-icon {
   color: #f0b4bd;
 }
 
+.main-content{
+  max-width: 1164px;
+  margin:0 auto;
+}
+.main-content h1{
+  font-weight:bold;
+  text-transform: uppercase;
+  font-size:33px;
+  text-align: center;
+}
+
+.main-content p{
+  text-align: justify;
+  font-size:20px;
+}
+
+
 @media(max-width: 600px){
   #footer .final-links a{
     display: block;

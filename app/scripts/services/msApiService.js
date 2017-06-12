@@ -25,16 +25,16 @@ angular.module('mediosSuciosFrontApp')
     this.getSourceCount = function(){
       var baseUrl = Restangular.configuration.baseUrl;
       return $http.get(baseUrl + '/sourcecount');
-    }
+    };
 
     this.getMotiveCount = function(){
       var baseUrl = Restangular.configuration.baseUrl;
       return $http.get(baseUrl + '/motivecount');
-    }
+    };
 
     this.getDateReportCount = function(){
       var baseUrl = Restangular.configuration.baseUrl;
       return $http.get(baseUrl + '/datecount');
-    }
+    }; 
 
   });

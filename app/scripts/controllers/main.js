@@ -8,7 +8,7 @@
  * Controller of the mediosSuciosFrontApp
  */
 angular.module('mediosSuciosFrontApp')
-  .controller('MainCtrl', function(msApiService, metadataService, $mdSidenav, $filter) {
+  .controller('MainCtrl', function(msApiService, metadataService, $mdSidenav, $filter,prismicService) {
 
     var vm = this;
 
@@ -48,12 +48,16 @@ angular.module('mediosSuciosFrontApp')
         { title: 'Discapacidad' }
       ];
 
+      prismicService.getAll().then(function(res){
+        vm.pages = res.data.results;
+        console.log(vm.pages);
+      });
+
     }
 
     function setReports(reports) {
       vm.loadingReports = false;
       vm.reports = reports.map(function(report) {
-        console.log(report);
         report.info = metadataService.getBasicInfo(report.metadata);
         return report;
       });
@@ -79,7 +83,7 @@ angular.module('mediosSuciosFrontApp')
 
       msApiService.getSourceCount()
         .then(function(res){
-          console.log(res);
+          //console.log(res);
           var sourceCountReport = res.data;
 
           vm.sourceData = sourceCountReport.reduce(function(acum,source){
@@ -98,17 +102,16 @@ angular.module('mediosSuciosFrontApp')
                 }
               ]
             }
-          }
-          console.log('vm.mediaData', vm.mediaData);
+          };
+          //console.log('vm.mediaData', vm.mediaData);
       })
       .catch(function(err){
         console.log(err);
-      })
+      });
 
 
       msApiService.getMotiveCount()
         .then(function(res){
-          console.log(res);
           var motiveCountReport = res.data;
 
           vm.motiveData = motiveCountReport.reduce(function(acum,source){
@@ -127,16 +130,16 @@ angular.module('mediosSuciosFrontApp')
                 }
               ]
             }
-          }
+          };
       })
       .catch(function(err){
         console.log(err);
-      })
+      });
 
 
       msApiService.getDateReportCount()
         .then(function(res){
-          console.log(res);
+         // console.log(res);
           var dateCountReport = res.data;
 
           vm.dateData = dateCountReport.reduce(function(acum,source){
@@ -153,7 +156,7 @@ angular.module('mediosSuciosFrontApp')
       })
       .catch(function(err){
         console.log(err);
-      })
+      });
 
       //var formattedMonth = moment('09', 'MM').format('MMMM');
         /*
@@ -166,10 +169,10 @@ angular.module('mediosSuciosFrontApp')
       */
 
 
-      vm.datesData.labels = ["January", "February", "March", "April", "May", "June", "July"];
+      vm.datesData.labels = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ];
       vm.datesData.series = ['Series A'];
       vm.datesData.data = [
-        [65, 59, 80, 81, 56, 55, 40]
+        [65, 59, 80, 81, 56, 55, 40] 
       ];
       //vm.datesData.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
       vm.datesData.options = {

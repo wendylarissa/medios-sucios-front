@@ -1,35 +1,5 @@
 <div flex layout='row' layout-wrap layout-fill>
-  <div class="main-box" flex flex-xs="100" flex-sm="100">
-    <md-toolbar layout="row" class="md-toolbar-tools main-toolbar">
-      <h1 flex>Contacto: + 52 <span>(555) 555-5555</span></h1>
-      <span class="icon icon-instagram"></span>
-      <span class="icon icon-facebook"></span>
-      <span class="icon icon-twitter"></span>
-      <!--<md-button class='md-secondary md-raised' ng-click='vm.toggleSidenav()' >Reportar</md-button> -->
-    </md-toolbar>
-    <md-content layout='row' layout-wrap class='marquee' layout-fill>
-      <div class="marquee-inner">
-        <div layout-align='space-between start' layout='row' class='menu-container'>
-          <a href=''>¿Por qué reportar?</a>
-          <a href=''>¿Cómo Funciona?</a>
-          <a href=''>¿Reportes?</a>
-          <a href=''>¿Qué es discurso de odio?</a>
-          <a href=''>¿Quiénes Sómos?</a>
-          <a href=''>Contacto</a>  
-        </div>
-
-        <div class="intro-content">
-          <h1><strong>Medios sucios</strong> es un sitio que recopila el discurso de odio en medios de latinoamérica</h1>
-          <h2>Haz un reporte</h2>
-          <p>
-            <button class="action-btn">
-              Conoce más
-            </button>
-          </p>
-        </div>
-      </div>
-    </md-content>
-  </div>
+  <ng-include src='"views/mainbox.html"' flex flex-xs="100" flex-sm="100" class="main-box"></ng-include>
   <ng-include src='"views/sidenav.html"' layout='row' class='sidenav-container' ></ng-include>
 </div>
 

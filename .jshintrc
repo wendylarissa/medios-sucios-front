@@ -57,6 +57,8 @@
   "globals": {
     "angular": false,
     "$": false,
-    "d3" : false
+    "d3" : false,
+    "moment" : false,
+    "prismic" : false
   }
 }
