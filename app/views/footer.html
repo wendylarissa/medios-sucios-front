@@ -2,30 +2,26 @@
   <div class="footer-inner">
     <div layout="row">
       <div flex="50">
-        <p><a href='/'><img class="logo-footer" src='images/Logo-Medios-Sucios2.png' alt='medios sucios' /></a></p>
-
+        <p>
+          <a href='/'><img class="logo-footer" src='images/Logo-Medios-Sucios2.png' alt='medios sucios' /></a>
+        </p>
         <ul class="sitemap">
-          <li><a href=''>¿Por qué Reportar?</a></li>
-          <li><a href=''>¿Cómo Funciona?</a></li>
-          <li><a href=''>¿Reportes?</a></li>
-          <li><a href=''>¿Qué es discurso de odio?</a></li>
-          <li><a href=''>¿Quiénes sómos?</a></li>
+          <li ng-repeat='page in vm.pages'><a ng-href='#!/content/{{page.slug}}'>{{page.fragments['pagina.titulo'].value[0].text}}</a></li>
         </ul>
       </div>
     </div>
     <div layout="row" layout-align="space-between start" layout-wrap>
       <div flex="50" flex-sm="100" flex-xs="100">
         <p>
-          <span class="icon icon-instagram"></span>
-          <span class="icon icon-facebook"></span>
-          <span class="icon icon-twitter"></span>
-        </p>        
+          <a target='_blank' ng-href='{{vm.generalContent.fragments["contenido_general.instagram_link"].value.url}}'><span class="icon icon-instagram"></span></a>
+          <a target='_blank' ng-href='{{vm.generalContent.fragments["contenido_general.facebook_link"].value.url}}'><span class="icon icon-facebook"></span></a>
+          <a target='_blank' ng-href='{{vm.generalContent.fragments["contenido_general.twitter_link"].value.url}}'><span class="icon icon-twitter"></span></a>
+        </p>
       </div>
       <div flex-sm="100" flex-xs="100">
         <p class="final-links">
-          <a href="">Legales</a>
-          <a href="">Aviso de privacidad</a>
-          <a href="">Contacto</a>
+          <a href="#!/aviso-de-privacidad">Aviso de privacidad</a>
+          <a href="#!/contacto">Contacto</a>
         </p>
         <p class="copyright">
           <span>&copy; 2017 medios sucios</span> | Todos los derechos reservados

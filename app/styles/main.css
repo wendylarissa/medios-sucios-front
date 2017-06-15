@@ -139,7 +139,7 @@ md-sidenav .head img {
 md-sidenav md-input-container{
 
 }
-md-sidenav .reportbtn {
+.reportbtn {
   background: #2D303A;
   width: 100%;
   margin: 0;
@@ -150,14 +150,14 @@ md-sidenav .reportbtn {
   padding: 15px 0;
 }
 
-md-sidenav .reportbtn.md-button:not([disabled]):hover {
+.reportbtn.md-button:not([disabled]):hover {
   background-color: #f0b4bd;
 }
 
-md-sidenav .reportbtn.md-button:not([disabled]):hover .btn-icon{
+.reportbtn.md-button:not([disabled]):hover .btn-icon{
   background-image: url(../images/marranito2.png);
 }
-md-sidenav .reportbtn .btn-icon {
+.reportbtn .btn-icon {
   width: 80px;
   height:80px;
   display:block;

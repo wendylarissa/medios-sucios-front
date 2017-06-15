@@ -1,15 +1,17 @@
 <md-toolbar layout="row" class="md-toolbar-tools main-toolbar">
-  <h1 flex>Contacto: + 52 <span>(555) 555-5555</span></h1>
-  <span class="icon icon-instagram"></span>
-  <span class="icon icon-facebook"></span>
-  <span class="icon icon-twitter"></span>
+  <h1 flex layout='row'>Contacto: 
+    <prismic-html fragment="vm.generalContent.fragments['contenido_general.contacto_header_clave_pais']"></prismic-html>
+    <span><prismic-html fragment="vm.generalContent.fragments['contenido_general.telefono_header']"></prismic-html></span>
+  </h1>
+  <a target='_blank' ng-href='{{vm.generalContent.fragments["contenido_general.instagram_link"].value.url}}'><span class="icon icon-instagram"></span></a>
+  <a target='_blank' ng-href='{{vm.generalContent.fragments["contenido_general.facebook_link"].value.url}}'><span class="icon icon-facebook"></span></a>
+  <a target='_blank' ng-href='{{vm.generalContent.fragments["contenido_general.twitter_link"].value.url}}'><span class="icon icon-twitter"></span></a>
   <!--<md-button class='md-secondary md-raised' ng-click='vm.toggleSidenav()' >Reportar</md-button> -->
 </md-toolbar>
 <md-content layout='row' layout-wrap class='marquee' layout-fill>
   <div class="marquee-inner">
     <div layout-align='space-between start' layout='row' class='menu-container'>
-      <a ng-repeat='page in vm.pages' ng-href='#!/content/{{page.uid}}' >{{page.data.pagina.titulo.value[0].text}}</a>
-
+      <a ng-repeat='page in vm.pages' ng-href='#!/content/{{page.slug}}'>{{page.fragments['pagina.titulo'].value[0].text}}</a>
     </div>
     <div class="intro-content">
       <h1><strong>Medios sucios</strong> es un sitio que recopila el discurso de odio en medios de latinoamérica</h1>

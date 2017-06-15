@@ -1,0 +1,47 @@
+<div flex layout='row' layout-wrap layout-fill>
+  <ng-include src='"views/mainbox.html"' flex flex-xs="100" flex-sm="100" class="main-box"></ng-include>
+  <ng-include src='"views/sidenav.html"' layout='row' class='sidenav-container'></ng-include>
+</div>
+<md-content layout-padding class='md-padding' layout='row' layout-align='space-around'>
+  <form name='contactForm' ng-submit='vm.submitContact()' class="report-form md-padding" flex='30'>
+    <br/>
+    <br/>
+    <md-input-container>
+      <label>Nombre</label>
+      <input ng-model="vm.contact.name" ng-disabled='vm.reporting' required name='name'>
+      <div ng-messages="contactForm.name.$error" role="alert">
+        <div ng-message="required">Este campo es obligatorio.</div>
+      </div>
+    </md-input-container>
+    <md-input-container>
+      <label>Email</label>
+      <input ng-model="vm.contact.email" ng-disabled='vm.reporting' required name='name' type='email'>
+      <div ng-messages="contactForm.email.$error" role="alert">
+        <div ng-message="email">Por favor ingrese un email valido.</div>
+        <div ng-message="required">Este campo es obligatorio.</div>
+      </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label>Mensaje</label>
+      <textarea  ng-model="vm.contact.message" ng-disabled='vm.reporting' rows="4" md-select-on-focus name='message'></textarea>
+      <div ng-messages="contactForm.message.$error" role="alert">
+      </div>
+    </md-input-container>
+    <md-button type='submit' class='reportbtn' ng-if='!vm.reporting' layout='row' layout-align='center center'>enviar</md-button>
+    <md-progress-circular ng-if='vm.reporting' md-mode="indeterminate"></md-progress-circular>
+    <p ng-if='vm.done'>Gracias, su mensaje ha sido enviado. </p>
+    <br/>
+    <br/>
+    <br/>
+    <h3>Para más información contactanos:</h3>
+    <p>512.582.2223 | 01.800.851.7910</p>
+    <p>info@mediossucios.com</p>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+  </form>
+  <iframe flex='40' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.6647401440246!2d-86.82321088451178!3d21.165736385924305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2ea9f3f4faf9%3A0xa81de67d6865a598!2sCiudadan%40s+por+la+Transparencia!5e0!3m2!1sen!2smx!4v1497540695397" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</md-content>
+<ng-include src='"views/footer.html"'></ng-include>

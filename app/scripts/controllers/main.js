@@ -8,7 +8,7 @@
  * Controller of the mediosSuciosFrontApp
  */
 angular.module('mediosSuciosFrontApp')
-  .controller('MainCtrl', function(msApiService, metadataService, $mdSidenav, $filter,prismicService) {
+  .controller('MainCtrl', function(msApiService, metadataService, $mdSidenav, $filter, Prismic) {
 
     var vm = this;
 
@@ -48,10 +48,21 @@ angular.module('mediosSuciosFrontApp')
         { title: 'Discapacidad' }
       ];
 
-      prismicService.getAll().then(function(res){
-        vm.pages = res.data.results;
-        console.log(vm.pages);
+      Prismic.all().then(function(data){
+        vm.pages = data.results;
+        vm.generalContent = vm.pages.find(function(page){
+          return page.type === 'contenido_general';
+        });
+
+        vm.pages = vm.pages.filter(function(page){
+          return page.type === 'pagina';
+        });
       });
+
+     /* prismicService.getAll().then(function(res){
+        vm.pages = res.data.results;
+        //console.log(vm.pages);
+      });*/
 
     }
 

@@ -18,7 +18,8 @@ angular
     'ngMaterial',
     'restangular',
     'ngMessages',
-    'chart.js'
+    'chart.js',
+    'prismic.io'
   ])
   .config(function($routeProvider) {
     $routeProvider
@@ -30,6 +31,16 @@ angular
       .when('/content/:contentSlug', {
         templateUrl: 'views/content.html',
         controller: 'ContentCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/contacto', {
+        templateUrl: 'views/contacto.html',
+        controller: 'ContactoCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/aviso-de-privacidad', {
+        templateUrl: 'views/aviso-de-privacidad.html',
+        controller: 'AvisoDePrivacidadCtrl',
         controllerAs: 'vm'
       })
       .otherwise({
@@ -53,10 +64,14 @@ angular
       .primaryPalette('pinkMS');
 
   })
-  .config(function (ChartJsProvider) {
-    ChartJsProvider.setOptions({ 
-      colors : [ '#f0b4bd', '#fff', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] 
-      //default colors: 
-      //colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] 
+  .config(function(ChartJsProvider) {
+    ChartJsProvider.setOptions({
+      colors: ['#f0b4bd', '#fff', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360']
     });
-  }); 
+  })
+  .config(function(PrismicProvider) {
+    PrismicProvider.setApiEndpoint('https://medios-sucios.prismic.io/api');
+    PrismicProvider.setLinkResolver(function(ctx, doc) {
+      return '#!/content/' + doc.id + '&slug=' + doc.slug + ctx.maybeRefParam;
+    });
+  });
