@@ -1,6 +1,6 @@
 <div flex layout='row' layout-wrap layout-fill>
   <ng-include src='"views/mainbox.html"' flex flex-xs="100" flex-sm="100" class="main-box"></ng-include>
-  <ng-include src='"views/sidenav.html"' layout='row' class='sidenav-container' ></ng-include>
+  <ng-include src='"views/sidenav.html"' layout='row' class='sidenav-container' flex-xs='100' flex-sm='100' ></ng-include>
 </div>
 <md-content layout-padding class='main-content'>
   <prismic-html fragment="vm.content.fragments['pagina.titulo']"></prismic-html>
